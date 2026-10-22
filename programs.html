@@ -4,8 +4,94 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Programs — Absterge Lacrimas Africa Uganda Limited</title>
-  <link rel="icon" type="image" href="assets/logo.jpg">
   <link rel="stylesheet" href="main.css">
+  <style>
+    /* Program photo sliders */
+    .program-detail__img {
+      background: var(--navy);
+      box-shadow: var(--shadow);
+      position: relative;
+      display: block;
+    }
+    .slider {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      touch-action: pan-y;
+    }
+    .slider__track {
+      display: flex;
+      height: 100%;
+      transition: transform 0.6s ease;
+    }
+    .slider__slide {
+      flex: 0 0 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .slider__slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+    .slider__btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 38px;
+      height: 38px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(26,45,90,0.65);
+      color: #fff;
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.25s, background 0.25s;
+      z-index: 2;
+    }
+    .slider:hover .slider__btn,
+    .slider__btn:focus-visible { opacity: 1; }
+    .slider__btn:hover { background: var(--gold); color: var(--navy); }
+    .slider__btn--prev { left: 12px; }
+    .slider__btn--next { right: 12px; }
+    .slider__dots {
+      position: absolute;
+      bottom: 12px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      z-index: 2;
+    }
+    .slider__dot {
+      width: 10px;
+      height: 10px;
+      padding: 0;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.55);
+      cursor: pointer;
+      transition: background 0.25s, transform 0.25s;
+    }
+    .slider__dot.is-active { background: var(--gold); transform: scale(1.25); }
+    @media (max-width: 768px) {
+      .program-detail__img { height: 240px; }
+      .slider__btn { opacity: 1; width: 34px; height: 34px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .slider__track { transition: none; }
+    }
+  </style>
 </head>
 <body>
 
@@ -34,7 +120,18 @@
 <section class="section" id="education">
   <div class="container">
     <div class="program-detail">
-      <div class="program-detail__img">💼</div>
+      <div class="program-detail__img">
+          <div class="slider" aria-roledescription="carousel" aria-label="Child Development &amp; Education photos">
+            <div class="slider__track">
+            <div class="slider__slide"><img src="assets/program1-1.jpg" alt="Pupils cheering in front of their school: “Our School, Our Future”" style="object-position:50% 62%;" loading="lazy"></div>
+            <div class="slider__slide"><img src="assets/program1-2.jpg" alt="Children waving outside a classroom block" style="object-position:50% 45%;" loading="lazy"></div>
+            <div class="slider__slide"><img src="assets/program1-3.jpg" alt="A facilitator with a school full of excited pupils" style="object-position:40% 50%;" loading="lazy"></div>
+            </div>
+            <button class="slider__btn slider__btn--prev" type="button" aria-label="Previous photo">&#8249;</button>
+            <button class="slider__btn slider__btn--next" type="button" aria-label="Next photo">&#8250;</button>
+            <div class="slider__dots"></div>
+          </div>
+        </div>
       <div class="program-detail__text">
         <span class="tag">Program 1</span>
         <div class="gold-line"></div>
@@ -53,7 +150,18 @@
 
     <!-- Program 2: Youth -->
     <div class="program-detail" id="youth">
-      <div class="program-detail__img">💼</div>
+      <div class="program-detail__img">
+          <div class="slider" aria-roledescription="carousel" aria-label="Youth Empowerment, Vocational Skills &amp; Entrepreneurship photos">
+            <div class="slider__track">
+            <div class="slider__slide"><img src="assets/program2-1.jpg" alt="Community members attending a training session" style="object-position:30% 62%;" loading="lazy"></div>
+            <div class="slider__slide"><img src="assets/program2-2.jpg" alt="Piggery project supporting household income" style="object-position:50% 55%;" loading="lazy"></div>
+            <div class="slider__slide"><img src="assets/program2-3.jpg" alt="A youth farmer in his vegetable garden" style="object-position:45% 40%;" loading="lazy"></div>
+            </div>
+            <button class="slider__btn slider__btn--prev" type="button" aria-label="Previous photo">&#8249;</button>
+            <button class="slider__btn slider__btn--next" type="button" aria-label="Next photo">&#8250;</button>
+            <div class="slider__dots"></div>
+          </div>
+        </div>
       <div class="program-detail__text">
         <span class="tag">Program 2</span>
         <div class="gold-line"></div>
@@ -72,7 +180,18 @@
 
     <!-- Program 3: Health -->
     <div class="program-detail" id="health">
-      <div class="program-detail__img">🏥</div>
+      <div class="program-detail__img">
+          <div class="slider" aria-roledescription="carousel" aria-label="Health, HIV/AIDS Awareness &amp; Community Wellbeing photos">
+            <div class="slider__track">
+            <div class="slider__slide"><img src="assets/program3-1.jpg" alt="Community members preparing a garden bed" style="object-position:50% 55%;" loading="lazy"></div>
+            <div class="slider__slide"><img src="assets/program3-2.jpg" alt="Community discussion held under a tree" style="object-position:50% 45%;" loading="lazy"></div>
+            <div class="slider__slide"><img src="assets/program3-3.jpg" alt="Community members gathered for a group photo" style="object-position:50% 48%;" loading="lazy"></div>
+            </div>
+            <button class="slider__btn slider__btn--prev" type="button" aria-label="Previous photo">&#8249;</button>
+            <button class="slider__btn slider__btn--next" type="button" aria-label="Next photo">&#8250;</button>
+            <div class="slider__dots"></div>
+          </div>
+        </div>
       <div class="program-detail__text">
         <span class="tag">Program 3</span>
         <div class="gold-line"></div>
@@ -92,7 +211,18 @@
 
     <!-- Program 4: Environment -->
     <div class="program-detail" id="environment">
-      <div class="program-detail__img">🌱</div>
+      <div class="program-detail__img">
+          <div class="slider" aria-roledescription="carousel" aria-label="Environment, Agriculture &amp; Climate Resilience photos">
+            <div class="slider__track">
+            <div class="slider__slide"><img src="assets/program4-1.jpg" alt="Cabbage garden mulched with straw" style="object-position:50% 62%;" loading="lazy"></div>
+            <div class="slider__slide"><img src="assets/program4-2.jpg" alt="Installing a borehole pump for clean water" style="object-position:50% 45%;" loading="lazy"></div>
+            <div class="slider__slide"><img src="assets/program4-3.jpg" alt="Constructing a protected water point" style="object-position:50% 55%;" loading="lazy"></div>
+            </div>
+            <button class="slider__btn slider__btn--prev" type="button" aria-label="Previous photo">&#8249;</button>
+            <button class="slider__btn slider__btn--next" type="button" aria-label="Next photo">&#8250;</button>
+            <div class="slider__dots"></div>
+          </div>
+        </div>
       <div class="program-detail__text">
         <span class="tag">Program 4</span>
         <div class="gold-line"></div>
@@ -142,5 +272,54 @@
 </section>
 
 <script src="shared.js"></script>
+<script>
+  /* Program photo sliders: arrows, dots, swipe, autoplay (pauses on hover/touch) */
+  document.querySelectorAll('.slider').forEach(function (slider) {
+    var track = slider.querySelector('.slider__track');
+    var slides = slider.querySelectorAll('.slider__slide');
+    var dotsWrap = slider.querySelector('.slider__dots');
+    var count = slides.length, index = 0, timer = null, startX = null;
+
+    slides.forEach(function (_, i) {
+      var d = document.createElement('button');
+      d.type = 'button';
+      d.className = 'slider__dot';
+      d.setAttribute('aria-label', 'Go to photo ' + (i + 1));
+      d.addEventListener('click', function () { go(i); restart(); });
+      dotsWrap.appendChild(d);
+    });
+    var dots = dotsWrap.children;
+
+    function go(i) {
+      index = (i + count) % count;
+      track.style.transform = 'translateX(-' + (index * 100) + '%)';
+      for (var k = 0; k < dots.length; k++) dots[k].classList.toggle('is-active', k === index);
+    }
+    function start() {
+      if (count > 1 && !window.matchMedia('(prefers-reduced-motion: reduce)').matches)
+        timer = setInterval(function () { go(index + 1); }, 4500);
+    }
+    function stop() { clearInterval(timer); }
+    function restart() { stop(); start(); }
+
+    slider.querySelector('.slider__btn--prev').addEventListener('click', function () { go(index - 1); restart(); });
+    slider.querySelector('.slider__btn--next').addEventListener('click', function () { go(index + 1); restart(); });
+    slider.addEventListener('mouseenter', stop);
+    slider.addEventListener('mouseleave', start);
+    slider.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; stop(); }, { passive: true });
+    slider.addEventListener('touchend', function (e) {
+      if (startX !== null) {
+        var dx = e.changedTouches[0].clientX - startX;
+        if (Math.abs(dx) > 40) go(index + (dx < 0 ? 1 : -1));
+        startX = null;
+      }
+      start();
+    });
+
+    if (count <= 1) { slider.querySelectorAll('.slider__btn,.slider__dots').forEach(function (n) { n.style.display = 'none'; }); }
+    go(0);
+    start();
+  });
+</script>
 </body>
 </html>
