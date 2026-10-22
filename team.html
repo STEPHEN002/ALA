@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Team — Absterge Lacrimas Africa Uganda Limited</title>
-  <link rel="icon" type="image" href="assets/logo.jpg">
   <link rel="stylesheet" href="main.css">
   <style>
     .tier {
@@ -21,27 +20,54 @@
       padding-bottom: 10px;
       border-bottom: 2px solid rgba(244,169,0,0.2);
     }
-    .role-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
+    /* Team member cards: photo, name, position */
+    .roles-wrap {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 24px;
+    }
+    .member-card {
       background: var(--white);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 14px 20px;
-      margin: 8px;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--navy);
-      border-left: 4px solid var(--green);
-      transition: transform 0.2s;
+      overflow: hidden;
+      text-align: center;
+      border-top: 4px solid var(--green);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
-    .role-badge:hover { transform: translateY(-2px); }
-    .role-badge .icon { font-size: 18px; }
-    .role-badge--gold  { border-left-color: var(--gold); }
-    .role-badge--navy  { border-left-color: var(--navy); }
-    .role-badge--red   { border-left-color: #c62828; }
-    .roles-wrap { display: flex; flex-wrap: wrap; }
+    .member-card:hover { transform: translateY(-4px); box-shadow: 0 8px 32px rgba(26,45,90,0.16); }
+    .member-card--gold { border-top-color: var(--gold); }
+    .member-card--navy { border-top-color: var(--navy); }
+    .member-card--red  { border-top-color: #c62828; }
+    .member-card__photo {
+      width: 100%;
+      aspect-ratio: 4 / 4.4;
+      background: #eef0f4;
+      overflow: hidden;
+    }
+    .member-card__photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .member-card__info { padding: 14px 12px 18px; }
+    .member-card__name {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--navy);
+      margin: 0 0 4px;
+    }
+    .member-card__role {
+      font-size: 13px;
+      line-height: 1.5;
+      color: #666;
+      margin: 0;
+    }
+    @media (max-width: 480px) {
+      .roles-wrap { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    }
 
     .join-card {
       background: linear-gradient(135deg, var(--navy), #0f1e3d);
@@ -95,9 +121,27 @@
     <div class="tier">
       <h3>🏛️ Governance</h3>
       <div class="roles-wrap">
-        <div class="role-badge role-badge--navy"><span class="icon">👥</span> General Assembly (All Members)</div>
-        <div class="role-badge role-badge--navy"><span class="icon">🏢</span> Board of Directors — Governance &amp; Oversight</div>
-        <div class="role-badge role-badge--navy"><span class="icon">👔</span> Executive Director (Chief Executive Officer)</div>
+        <div class="member-card member-card--navy">
+          <div class="member-card__photo"><img src="assets/team.jpg" alt="Team member" loading="lazy"></div>
+          <div class="member-card__info">
+            <h4 class="member-card__name">Full Name</h4>
+            <p class="member-card__role">General Assembly (All Members)</p>
+          </div>
+        </div>
+        <div class="member-card member-card--navy">
+          <div class="member-card__photo"><img src="assets/team.jpg" alt="Team member" loading="lazy"></div>
+          <div class="member-card__info">
+            <h4 class="member-card__name">Full Name</h4>
+            <p class="member-card__role">Board of Directors — Governance &amp; Oversight</p>
+          </div>
+        </div>
+        <div class="member-card member-card--navy">
+          <div class="member-card__photo"><img src="assets/team.jpg" alt="Team member" loading="lazy"></div>
+          <div class="member-card__info">
+            <h4 class="member-card__name">Full Name</h4>
+            <p class="member-card__role">Executive Director (Chief Executive Officer)</p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -105,7 +149,13 @@
     <div class="tier">
       <h3>📋 Program Leadership</h3>
       <div class="roles-wrap">
-        <div class="role-badge role-badge--gold"><span class="icon">💼</span> Program Manager — Head of Programs</div>
+        <div class="member-card member-card--gold">
+          <div class="member-card__photo"><img src="assets/team.jpg" alt="Team member" loading="lazy"></div>
+          <div class="member-card__info">
+            <h4 class="member-card__name">Full Name</h4>
+            <p class="member-card__role">Program Manager — Head of Programs</p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -113,10 +163,34 @@
     <div class="tier">
       <h3>⚙️ Management Team</h3>
       <div class="roles-wrap">
-        <div class="role-badge"><span class="icon">💰</span> Finance &amp; Administration Manager</div>
-        <div class="role-badge"><span class="icon">📊</span> MEAL Manager — Monitoring, Evaluation, Accountability &amp; Learning</div>
-        <div class="role-badge"><span class="icon">📣</span> Communications &amp; Advocacy Officer</div>
-        <div class="role-badge"><span class="icon">🤝</span> Resource Mobilisation &amp; Partnerships Officer</div>
+        <div class="member-card">
+          <div class="member-card__photo"><img src="assets/team.jpg" alt="Team member" loading="lazy"></div>
+          <div class="member-card__info">
+            <h4 class="member-card__name">Full Name</h4>
+            <p class="member-card__role">Finance &amp; Administration Manager</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-card__photo"><img src="assets/team.jpg" alt="Team member" loading="lazy"></div>
+          <div class="member-card__info">
+            <h4 class="member-card__name">Full Name</h4>
+            <p class="member-card__role">MEAL Manager — Monitoring, Evaluation, Accountability &amp; Learning</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-card__photo"><img src="assets/team.jpg" alt="Team member" loading="lazy"></div>
+          <div class="member-card__info">
+            <h4 class="member-card__name">Full Name</h4>
+            <p class="member-card__role">Communications &amp; Advocacy Officer</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-card__photo"><img src="assets/team.jpg" alt="Team member" loading="lazy"></div>
+          <div class="member-card__info">
+            <h4 class="member-card__name">Full Name</h4>
+            <p class="member-card__role">Resource Mobilisation &amp; Partnerships Officer</p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -124,9 +198,27 @@
     <div class="tier">
       <h3>💳 Finance &amp; Administration</h3>
       <div class="roles-wrap">
-        <div class="role-badge"><span class="icon">📈</span> Finance Officer</div>
-        <div class="role-badge"><span class="icon">👤</span> Human Resource Officer</div>
-        <div class="role-badge"><span class="icon">🗂️</span> Administrative Assistant</div>
+        <div class="member-card">
+          <div class="member-card__photo"><img src="assets/team.jpg" alt="Team member" loading="lazy"></div>
+          <div class="member-card__info">
+            <h4 class="member-card__name">Full Name</h4>
+            <p class="member-card__role">Finance Officer</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-card__photo"><img src="assets/team.jpg" alt="Team member" loading="lazy"></div>
+          <div class="member-card__info">
+            <h4 class="member-card__name">Full Name</h4>
+            <p class="member-card__role">Human Resource Officer</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-card__photo"><img src="assets/team.jpg" alt="Team member" loading="lazy"></div>
+          <div class="member-card__info">
+            <h4 class="member-card__name">Full Name</h4>
+            <p class="member-card__role">Administrative Assistant</p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -134,8 +226,20 @@
     <div class="tier">
       <h3>🔬 MEAL Unit</h3>
       <div class="roles-wrap">
-        <div class="role-badge"><span class="icon">📐</span> Monitoring &amp; Evaluation Officer</div>
-        <div class="role-badge"><span class="icon">💡</span> Research, Innovation &amp; Learning Officer</div>
+        <div class="member-card">
+          <div class="member-card__photo"><img src="assets/team.jpg" alt="Team member" loading="lazy"></div>
+          <div class="member-card__info">
+            <h4 class="member-card__name">Full Name</h4>
+            <p class="member-card__role">Monitoring &amp; Evaluation Officer</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-card__photo"><img src="assets/team.jpg" alt="Team member" loading="lazy"></div>
+          <div class="member-card__info">
+            <h4 class="member-card__name">Full Name</h4>
+            <p class="member-card__role">Research, Innovation &amp; Learning Officer</p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -143,14 +247,62 @@
     <div class="tier">
       <h3>🌍 Program Officers</h3>
       <div class="roles-wrap">
-        <div class="role-badge role-badge--red"><span class="icon">🧒</span> Child Protection &amp; Education Officer</div>
-        <div class="role-badge role-badge--red"><span class="icon">🛡️</span> Safeguarding &amp; Child Protection Officer</div>
-        <div class="role-badge"><span class="icon">🎓</span> Livelihoods &amp; Youth Empowerment Officer</div>
-        <div class="role-badge role-badge--gold"><span class="icon">➕</span> Health &amp; Community Wellbeing Officer</div>
-        <div class="role-badge role-badge--navy"><span class="icon">♿</span> Disability Inclusion Officer</div>
-        <div class="role-badge"><span class="icon">🌱</span> Environment &amp; Climate Resilience Officer</div>
-        <div class="role-badge"><span class="icon">🙋</span> Volunteer Coordinator</div>
-        <div class="role-badge"><span class="icon">🎒</span> Internship Coordinator</div>
+        <div class="member-card member-card--red">
+          <div class="member-card__photo"><img src="assets/team.jpg" alt="Team member" loading="lazy"></div>
+          <div class="member-card__info">
+            <h4 class="member-card__name">Full Name</h4>
+            <p class="member-card__role">Child Protection &amp; Education Officer</p>
+          </div>
+        </div>
+        <div class="member-card member-card--red">
+          <div class="member-card__photo"><img src="assets/team.jpg" alt="Team member" loading="lazy"></div>
+          <div class="member-card__info">
+            <h4 class="member-card__name">Full Name</h4>
+            <p class="member-card__role">Safeguarding &amp; Child Protection Officer</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-card__photo"><img src="assets/team.jpg" alt="Team member" loading="lazy"></div>
+          <div class="member-card__info">
+            <h4 class="member-card__name">Full Name</h4>
+            <p class="member-card__role">Livelihoods &amp; Youth Empowerment Officer</p>
+          </div>
+        </div>
+        <div class="member-card member-card--gold">
+          <div class="member-card__photo"><img src="assets/team.jpg" alt="Team member" loading="lazy"></div>
+          <div class="member-card__info">
+            <h4 class="member-card__name">Full Name</h4>
+            <p class="member-card__role">Health &amp; Community Wellbeing Officer</p>
+          </div>
+        </div>
+        <div class="member-card member-card--navy">
+          <div class="member-card__photo"><img src="assets/team.jpg" alt="Team member" loading="lazy"></div>
+          <div class="member-card__info">
+            <h4 class="member-card__name">Full Name</h4>
+            <p class="member-card__role">Disability Inclusion Officer</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-card__photo"><img src="assets/team.jpg" alt="Team member" loading="lazy"></div>
+          <div class="member-card__info">
+            <h4 class="member-card__name">Full Name</h4>
+            <p class="member-card__role">Environment &amp; Climate Resilience Officer</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-card__photo"><img src="assets/team.jpg" alt="Team member" loading="lazy"></div>
+          <div class="member-card__info">
+            <h4 class="member-card__name">Full Name</h4>
+            <p class="member-card__role">Volunteer Coordinator</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-card__photo"><img src="assets/team.jpg" alt="Team member" loading="lazy"></div>
+          <div class="member-card__info">
+            <h4 class="member-card__name">Full Name</h4>
+            <p class="member-card__role">Internship Coordinator</p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -158,15 +310,69 @@
     <div class="tier">
       <h3>🦺 Community &amp; Support Staff</h3>
       <div class="roles-wrap">
-        <div class="role-badge"><span class="icon">👥</span> Community Volunteers</div>
-        <div class="role-badge"><span class="icon">🎓</span> Academic &amp; Professional Interns</div>
-        <div class="role-badge"><span class="icon">🏘️</span> Community Mobilisers</div>
-        <div class="role-badge"><span class="icon">🌾</span> Field Assistants</div>
-        <div class="role-badge"><span class="icon">🖥️</span> Office Assistants</div>
-        <div class="role-badge"><span class="icon">🚗</span> Drivers</div>
-        <div class="role-badge"><span class="icon">📞</span> Receptionists</div>
-        <div class="role-badge"><span class="icon">🧹</span> Cleaners</div>
-        <div class="role-badge"><span class="icon">🛡️</span> Security Personnel</div>
+        <div class="member-card">
+          <div class="member-card__photo"><img src="assets/team.jpg" alt="Team member" loading="lazy"></div>
+          <div class="member-card__info">
+            <h4 class="member-card__name">Full Name</h4>
+            <p class="member-card__role">Community Volunteers</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-card__photo"><img src="assets/team.jpg" alt="Team member" loading="lazy"></div>
+          <div class="member-card__info">
+            <h4 class="member-card__name">Full Name</h4>
+            <p class="member-card__role">Academic &amp; Professional Interns</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-card__photo"><img src="assets/team.jpg" alt="Team member" loading="lazy"></div>
+          <div class="member-card__info">
+            <h4 class="member-card__name">Full Name</h4>
+            <p class="member-card__role">Community Mobilisers</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-card__photo"><img src="assets/team.jpg" alt="Team member" loading="lazy"></div>
+          <div class="member-card__info">
+            <h4 class="member-card__name">Full Name</h4>
+            <p class="member-card__role">Field Assistants</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-card__photo"><img src="assets/team.jpg" alt="Team member" loading="lazy"></div>
+          <div class="member-card__info">
+            <h4 class="member-card__name">Full Name</h4>
+            <p class="member-card__role">Office Assistants</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-card__photo"><img src="assets/team.jpg" alt="Team member" loading="lazy"></div>
+          <div class="member-card__info">
+            <h4 class="member-card__name">Full Name</h4>
+            <p class="member-card__role">Drivers</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-card__photo"><img src="assets/team.jpg" alt="Team member" loading="lazy"></div>
+          <div class="member-card__info">
+            <h4 class="member-card__name">Full Name</h4>
+            <p class="member-card__role">Receptionists</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-card__photo"><img src="assets/team.jpg" alt="Team member" loading="lazy"></div>
+          <div class="member-card__info">
+            <h4 class="member-card__name">Full Name</h4>
+            <p class="member-card__role">Cleaners</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="member-card__photo"><img src="assets/team.jpg" alt="Team member" loading="lazy"></div>
+          <div class="member-card__info">
+            <h4 class="member-card__name">Full Name</h4>
+            <p class="member-card__role">Security Personnel</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
